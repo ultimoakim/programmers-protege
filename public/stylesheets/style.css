@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+.menulinks img {
+  height: 30px;
+}
+
+#navbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menulinks {
+  margin: 0px 10px 0px 10px;
+}
