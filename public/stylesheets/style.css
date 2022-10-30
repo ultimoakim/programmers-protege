@@ -12,10 +12,16 @@ a {
 }
 
 #navbar {
+  background-color: lightgray;
   display: flex;
   justify-content: flex-end;
 }
 
 .menulinks {
   margin: 0px 10px 0px 10px;
+}
+
+.homeTitle {
+  display: flex;
+  justify-content: center;
 }
