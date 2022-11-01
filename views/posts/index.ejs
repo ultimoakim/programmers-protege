@@ -3,12 +3,61 @@
 <h1 class="homeTitle">Welcome to Programmer's Protégé!</h2>
 <% if (user) { %>
     <h4 class="homeTitle">Thanks for stopping by, fellow protégé! Let's teach other something new today!</h4>
+    <br>
     <section id="postBtnSection">
         <form action="/posts/new" method="GET">
             <button id="createPostBtn" type="submit">+ Create a Protégé Post!</button>
         </form>
     </section>
+    
+    <br>
+    <br>
+
+    <table class="table table-success table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">User</th>
+            <th scope="col">Post Title</th>
+            <th scope="col">Tags</th>
+            <th scope="col">Date Created</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% allPosts.forEach(function(post, index) { %>
+            <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= post.title %></td>
+                <td><%= post.tag %></td>
+                <td><%= new Date().toDateString() %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+      </table>
+
 <% } else { %>
     <h4 class="homeTitle">Please login to begin sharing your knowledge to the rest of your fellow protégés!</h4>
+
+    <br>
+
+    <table class="table table-success table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">User</th>
+            <th scope="col">Post Title</th>
+            <th scope="col">Tags</th>
+            <th scope="col">Date Created</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% allPosts.forEach(function(post, index) { %>
+            <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= post.title %></td>
+                <td><%= post.tag %></td>
+                <td><%= new Date().toDateString() %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+      </table>
 <% } %>
 <%- include('../partials/footer') %>

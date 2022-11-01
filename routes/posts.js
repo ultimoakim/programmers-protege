@@ -10,5 +10,7 @@ router.get('/', postsCtrl.index);
 // New post (which leads into creating one): GET /posts/new
 router.get('/new', postsCtrl.new);
 
+// Create the post!: POST /posts
+router.post('/', postsCtrl.create);
 
 module.exports = router;

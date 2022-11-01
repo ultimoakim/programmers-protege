@@ -1,27 +1,29 @@
 <%- include('../partials/header') %>
 
+<br>
+
 <h2><%= title %></h2>
 
 <br>
 
 <form action="/posts" method="POST">
     <label>Title of Post: 
-        <input type="text" name="title">
+        <input type="text" name="title" required>
     </label>
     <br>
     <br>
     <label>Tags:
         <input type="text" name="tag">
     </label>
-    <br>
-    <br>
+    <br><br><br>
     <h3>Type away your knowledge and POWAH!</h3>
+    <br>
     <p>Please keep in mind that we absolutely ENCOURAGE YOU to write as many posts as you can! It is okay to be wrong. It is okay to make mistakes. However, you obviously can't just write nonsense and just not try at all. Please do give it your best, of course!</p>
     <label>
         <br>
         <br>
         <!-- Beginning of TinyMCE -->
-        <textarea placeholder="What would you like to share about today? Please do educate us all!">
+        <textarea name="content" placeholder="What would you like to share about today? Please do educate us all!">
          </textarea>
          <script>
            tinymce.init({
@@ -40,7 +42,7 @@
     </label>
     <br>
     <br>
-    <button type="submit">Add Post!</button>
+    <button type="submit">Publish Your Post!</button>
 </form>
 
 <%- include('../partials/footer') %>
