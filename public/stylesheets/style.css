@@ -25,3 +25,19 @@ a {
   display: flex;
   justify-content: center;
 }
+
+#postBtnSection {
+  display: flex;
+  justify-content: center;
+}
+
+#createPostBtn {
+  background-color: aquamarine;
+  border-radius: 500px;
+  height: 40px;
+}
+
+#postBody {
+  height: 200px;
+  width: 800px;
+}

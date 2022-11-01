@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protégé</title>
+<!-- Starting here is CKEditor 5 -->
+<script src="https://cdn.tiny.cloud/1/neij2f1fvrptbit5lmhzkfovenb60i5ubzp4b07zr98rwt5m/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- CKEditor 5 ends here -->
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
     <nav id="navbar">
         <a href="/" class="menulinks">Home<img src="https://i.imgur.com/1e1XBLV.png"></a>
         <% if (user) { %>
-            <a href="" class="menulinks">Create New Post <img src="https://i.imgur.com/FEbTabD.png"></a>
+            <a href="/posts/new" class="menulinks">Create New Post <img src="https://i.imgur.com/FEbTabD.png"></a>
             <a href="/logout" class="menulinks">Log Out<img src="https://i.imgur.com/afmn7gp.png"></a>
         <% } else { %>
             <a href="/auth/google" class="menulinks">Log In<img src="https://i.imgur.com/FHjYyi0.png"></a>

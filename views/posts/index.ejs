@@ -1,9 +1,14 @@
 <%- include('../partials/header') %>
 <br>
-<h2 class="homeTitle">Welcome to Programmer's Protégé!</h2>
-<br>
-<h4 class="homeTitle">Thanks for stopping by, friends! Let's teach other something new today!</h4>
-
-
-
+<h1 class="homeTitle">Welcome to Programmer's Protégé!</h2>
+<% if (user) { %>
+    <h4 class="homeTitle">Thanks for stopping by, fellow protégé! Let's teach other something new today!</h4>
+    <section id="postBtnSection">
+        <form action="/posts/new" method="GET">
+            <button id="createPostBtn" type="submit">+ Create a Protégé Post!</button>
+        </form>
+    </section>
+<% } else { %>
+    <h4 class="homeTitle">Please login to begin sharing your knowledge to the rest of your fellow protégés!</h4>
+<% } %>
 <%- include('../partials/footer') %>

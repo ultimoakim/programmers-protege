@@ -1,0 +1,46 @@
+<%- include('../partials/header') %>
+
+<h2><%= title %></h2>
+
+<br>
+
+<form action="/posts" method="POST">
+    <label>Title of Post: 
+        <input type="text" name="title">
+    </label>
+    <br>
+    <br>
+    <label>Tags:
+        <input type="text" name="tag">
+    </label>
+    <br>
+    <br>
+    <h3>Type away your knowledge and POWAH!</h3>
+    <p>Please keep in mind that we absolutely ENCOURAGE YOU to write as many posts as you can! It is okay to be wrong. It is okay to make mistakes. However, you obviously can't just write nonsense and just not try at all. Please do give it your best, of course!</p>
+    <label>
+        <br>
+        <br>
+        <!-- Beginning of TinyMCE -->
+        <textarea placeholder="What would you like to share about today? Please do educate us all!">
+         </textarea>
+         <script>
+           tinymce.init({
+             selector: 'textarea',
+             plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect',
+             toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+             tinycomments_mode: 'embedded',
+             tinycomments_author: 'Author name',
+             mergetags_list: [
+               { value: 'First.Name', title: 'First Name' },
+               { value: 'Email', title: 'Email' },
+             ]
+           });
+         </script>
+         <!-- End of TinyMCE -->
+    </label>
+    <br>
+    <br>
+    <button type="submit">Add Post!</button>
+</form>
+
+<%- include('../partials/footer') %>
