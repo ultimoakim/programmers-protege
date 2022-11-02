@@ -2,7 +2,7 @@
 <br>
 <h1 class="homeTitle">Welcome to Programmer's Protégé!</h2>
 <% if (user) { %>
-    <h4 class="homeTitle">Thanks for stopping by, fellow protégé! Let's teach other something new today!</h4>
+    <h4 class="homeTitle"><%= welcomeMessage[randNum] %></h4>
     <br>
     <section id="postBtnSection">
         <form action="/posts/new" method="GET">
@@ -25,10 +25,10 @@
         <tbody>
             <% allPosts.forEach(function(post, index) { %>
             <tr>
-                <th scope="row"><%= index + 1 %></th>
+                <th scope="row"><%= post.userName %></th>
                 <td><%= post.title %></td>
                 <td><%= post.tag %></td>
-                <td><%= new Date().toDateString() %></td>
+                <td><%= new Date() %></td>
             </tr>
             <% }); %>
         </tbody>
@@ -51,10 +51,10 @@
         <tbody>
             <% allPosts.forEach(function(post, index) { %>
             <tr>
-                <th scope="row"><%= index + 1 %></th>
+                <th scope="row"><%= post.userName %></th>
                 <td><%= post.title %></td>
                 <td><%= post.tag %></td>
-                <td><%= new Date().toDateString() %></td>
+                <td><%= new Date() %></td>
             </tr>
             <% }); %>
         </tbody>

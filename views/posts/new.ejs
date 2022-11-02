@@ -8,7 +8,7 @@
 
 <form action="/posts" method="POST">
     <label>Title of Post: 
-        <input type="text" name="title" required>
+        <input type="text" name="title">
     </label>
     <br>
     <br>
@@ -18,13 +18,12 @@
     <br><br><br>
     <h3>Type away your knowledge and POWAH!</h3>
     <br>
-    <p>Please keep in mind that we absolutely ENCOURAGE YOU to write as many posts as you can! It is okay to be wrong. It is okay to make mistakes. However, you obviously can't just write nonsense and just not try at all. Please do give it your best, of course!</p>
+    <h5>Please keep in mind that we absolutely ENCOURAGE YOU to write as many posts as you can! It is okay to be wrong. It is okay to make mistakes. However, you obviously can't just write nonsense and just not try at all. Please do give it your best, of course!</h5>
     <label>
         <br>
         <br>
         <!-- Beginning of TinyMCE -->
-        <textarea name="content" placeholder="What would you like to share about today? Please do educate us all!">
-         </textarea>
+        <textarea name="content" placeholder="What would you like to share about today? Please do educate us all!"></textarea>
          <script>
            tinymce.init({
              selector: 'textarea',
