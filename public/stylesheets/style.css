@@ -16,6 +16,7 @@ a {
   background-color: lightgray;
   display: flex;
   justify-content: flex-end;
+  padding: 10px 5px 10px 5px;
 }
 
 .menulinks {
@@ -42,4 +43,17 @@ a {
   height: 200px;
   width: 800px;
 }
+
+#editPostBtn {
+  background-color: cornflowerblue;
+  border-radius: 500px;
+  height: 40px;
+}
+
+#updateBtn {
+  background-color: cadetblue;
+  border-radius: 500px;
+  height: 40px;
+}
+
 

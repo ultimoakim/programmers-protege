@@ -1,29 +1,24 @@
 <%- include('../partials/header') %>
 
 <br>
-
-<h2><%= title %></h2>
-
+<h3><%= title %></h3>
 <br>
-
-<form action="/posts" method="POST">
+<form action="" method="PUT">
     <label>Title of Post: 
-        <input type="text" name="title">
+        <input type="text" name="title" value="<%= singDoc.title %>">
     </label>
     <br>
     <br>
     <label>Tags:
-        <input type="text" name="tag">
+        <input type="text" name="tag" value="<%= singDoc.tag %>">
     </label>
     <br><br><br>
-    <h3>Type away your knowledge and POWAH, my friends!</h3>
+    <h5>Did you make a mistake or want to make a correction? Do it! 👍</h5>
     <br>
-    <h6>Please keep in mind that we absolutely ENCOURAGE YOU to write as many posts as you can! It is okay to be wrong. It is okay to make mistakes. However, you obviously can't just write nonsense and just not try at all. Please do give it your best, of course!</h6>
     <label>
         <br>
-        <br>
         <!-- Beginning of TinyMCE -->
-        <textarea name="content" placeholder="What would you like to share about today? Please do educate us all!"></textarea>
+        <textarea name="content" placeholder="What would you like to share about today? Please do educate us all!"><%= singDoc.content %></textarea>
          <script>
            tinymce.init({
              selector: 'textarea',
@@ -39,9 +34,8 @@
          </script>
          <!-- End of TinyMCE -->
     </label>
-    <br>
-    <br>
-    <button type="submit">Publish Your Post!</button>
+    <br><br><br>
+    <button type="submit" id="updateBtn">Update Your Post!</button>
 </form>
 
 <%- include('../partials/footer') %>

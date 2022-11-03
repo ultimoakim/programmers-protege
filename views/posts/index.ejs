@@ -6,7 +6,7 @@
     <br>
     <section id="postBtnSection">
         <form action="/posts/new" method="GET">
-            <button id="createPostBtn" type="submit">+ Create a Protégé Post!</button>
+            <button id="createPostBtn" type="submit">➕ Create a Protégé Post!</button>
         </form>
     </section>
     
@@ -14,25 +14,25 @@
     <br>
 
     <table class="table table-success table-striped table-hover">
-        <thead>
+      <thead>
+        <tr>
+          <th scope="col">User</th>
+          <th scope="col">Post Title</th>
+          <th scope="col">Tags</th>
+          <th scope="col">Date Created</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% allPosts.forEach(function(post, index) { %>
           <tr>
-            <th scope="col">User</th>
-            <th scope="col">Post Title</th>
-            <th scope="col">Tags</th>
-            <th scope="col">Date Created</th>
+              <th scope="row"><%= post.userName %></th>
+              <td><a href="/posts/<%= post._id %>"><%= post.title %></a></td>
+              <td><%= post.tag %></td>
+              <td><%= new Date() %></td>
           </tr>
-        </thead>
-        <tbody>
-            <% allPosts.forEach(function(post, index) { %>
-            <tr>
-                <th scope="row"><%= post.userName %></th>
-                <td><%= post.title %></td>
-                <td><%= post.tag %></td>
-                <td><%= new Date() %></td>
-            </tr>
-            <% }); %>
-        </tbody>
-      </table>
+          <% }); %>
+      </tbody>
+    </table>
 
 <% } else { %>
     <h4 class="homeTitle">Please login to begin sharing your knowledge to the rest of your fellow protégés!</h4>
@@ -52,7 +52,7 @@
             <% allPosts.forEach(function(post, index) { %>
             <tr>
                 <th scope="row"><%= post.userName %></th>
-                <td><%= post.title %></td>
+                <td><a href="/posts/<%= post._id %>"><%= post.title %></a></td>
                 <td><%= post.tag %></td>
                 <td><%= new Date() %></td>
             </tr>

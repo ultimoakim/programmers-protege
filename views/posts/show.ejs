@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+<% if (user) { %>
+<br>
+<h3><%= title %></h3>
+<section>
+    <br>
+    <form action="/posts/<%= singDoc._id %>/edit" method="GET">
+        <button id="editPostBtn" type="submit">✏️ Edit Your Protégé Post!</button>
+    </form>
+</section>
+<br><br>
+<h4>Created by: <%= singDoc.userName %></h4>
+<h4>Title: <%= singDoc.title %></h4>
+<br><br>
+<main id="postBody">
+    <%= stringToHTML %>
+</main>
+        <% } else { %>
+            <br>
+            <h3><%= title %></h3>
+            <section>
+                <br>
+            </section>
+            <br><br>
+            <h4>Created by: <%= singDoc.userName %></h4>
+            <h4>Title: <%= singDoc.title %></h4>
+            <br><br>
+            <main id="postBody">
+                <%= stringToHTML %>
+            </main>
+            <% } %> 
+    
+
+<%- include('../partials/footer') %>

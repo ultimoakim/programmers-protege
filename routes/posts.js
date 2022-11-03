@@ -14,4 +14,12 @@ router.get('/new', ensureLoggedIn, postsCtrl.new);
 // Create the post!: POST /posts
 router.post('/', ensureLoggedIn, postsCtrl.create);
 
+// View each post!: GET /posts/:id
+router.get('/:id', postsCtrl.show);
+
+// Edit each post!: GET /posts/:id/edit
+router.get('/:id/edit', ensureLoggedIn, postsCtrl.edit);
+
+
+
 module.exports = router;

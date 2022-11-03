@@ -1,9 +1,13 @@
 const Post = require('../models/post');
+// jsdom
+const jsdom = require('jsdom');
 
 module.exports = {
     index,
     new: newPost,
     create,
+    show,
+    edit,
 }
 
 // index = Post.find({}); // Why do I even have this code? If there are no bugs then that means I put this here for no reason.
@@ -48,6 +52,25 @@ function create(req, res) {
         })
 }
 
+// View each post! GET /posts/:id
+function show(req, res) {
+    Post.findById(req.params.id)
+        .then(function(singDoc) {
+            
+            const dom = new jsdom.JSDOM(singDoc.content);
+            console.log(dom.window.document.body.textContent);
+            let stringToHTML = dom.window.document.body.textContent;
 
+            res.render('posts/show', {title: 'Post Details', singDoc, stringToHTML });
+        }).catch(function(error) {
+            console.log(error);
+            res.redirect('/posts');
+        })
+}
 
-
+function edit(req, res) {
+    Post.findById(req.params.id)
+        .then(function(singDoc) {
+            res.render('posts/edit', { title: 'Edit Post', singDoc })
+        })
+}
