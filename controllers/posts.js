@@ -8,6 +8,8 @@ module.exports = {
     create,
     show,
     edit,
+    update,
+    delete: deletePost,
 }
 
 // index = Post.find({}); // Why do I even have this code? If there are no bugs then that means I put this here for no reason.
@@ -47,8 +49,7 @@ function create(req, res) {
             res.redirect('/posts');
         }).catch(function(error) {
             res.redirect('/posts/new');
-            console.log(error);
-            console.log(post);
+            console.log(`If you see this message, this is an error from the create function. Error: ${error}, post: ${post}`);
         })
 }
 
@@ -63,7 +64,7 @@ function show(req, res) {
 
             res.render('posts/show', {title: 'Post Details', singDoc, stringToHTML });
         }).catch(function(error) {
-            console.log(error);
+            console.log(`If you see this message, this is an error coming from our show function. The error is this: ${error}`);
             res.redirect('/posts');
         })
 }
@@ -71,6 +72,23 @@ function show(req, res) {
 function edit(req, res) {
     Post.findById(req.params.id)
         .then(function(singDoc) {
-            res.render('posts/edit', { title: 'Edit Post', singDoc })
+            res.render('posts/edit', { title: 'Edit Post', singDoc });
+        }).catch(function(error) {
+            console.log(`If you see this message, this is an error from our edit function. The error is this: ${error}`);
+            res.redirect('/posts');
+        })
+}
+
+function update(req, res) {
+    Post.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
+        .then(function(updated) {
+            res.redirect(`/posts/${updated._id}`);
+        })
+}
+
+function deletePost(req, res) {
+    Post.findOneAndDelete({_id: req.params.id})
+        .then(function(deleted) {
+            res.redirect(`/posts`);
         })
 }

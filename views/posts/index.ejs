@@ -20,6 +20,7 @@
           <th scope="col">Post Title</th>
           <th scope="col">Tags</th>
           <th scope="col">Date Created</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -29,6 +30,11 @@
               <td><a href="/posts/<%= post._id %>"><%= post.title %></a></td>
               <td><%= post.tag %></td>
               <td><%= new Date() %></td>
+              <td>
+                <form action="/posts/<%= post._id %>/?_method=DELETE" method="POST">
+                  <button type="submit">Delete Post</button>
+                </form>
+              </td>
           </tr>
           <% }); %>
       </tbody>
