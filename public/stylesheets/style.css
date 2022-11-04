@@ -36,7 +36,9 @@ a {
 #createPostBtn {
   background-color: aquamarine;
   border-radius: 500px;
-  height: 40px;
+  height: 80px;
+  width: 400px;
+  font-size: 24px;
 }
 
 #postBody {
@@ -56,4 +58,39 @@ a {
   height: 40px;
 }
 
+.postTagInput {
+  width: 300px;
+  height: 40px;
+  font-size: 15px;
+  border-radius: 10px;
+}
 
+#deletePostBtn {
+  height: 40px;
+  width: 80px;
+}
+
+#publishBtn {
+  background-color: rgb(0, 255, 42);
+  border-radius: 500px;
+  height: 40px;
+}
+
+#postBody {
+  background-color: rgb(230, 248, 255);
+  padding: 30px;
+  border-radius: 20px;
+  height: auto;
+  width: 1000px;
+}
+
+#centerPostBody {
+  display: flex;
+  justify-content: center;
+}
+
+#commentAvatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+}

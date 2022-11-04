@@ -21,10 +21,10 @@ router.get('/:id', postsCtrl.show);
 router.get('/:id/edit', ensureLoggedIn, postsCtrl.edit);
 
 // Update each selected post!: PUT /posts/:id
-router.put('/:id', postsCtrl.update);
+router.put('/:id', ensureLoggedIn, postsCtrl.update);
 
 // Delete each one of your posts!: DELETE /posts/:id
-router.delete('/:id', postsCtrl.delete);
+router.delete('/:id', ensureLoggedIn, postsCtrl.delete);
 
 
 

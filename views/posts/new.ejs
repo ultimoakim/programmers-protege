@@ -7,13 +7,14 @@
 <br>
 
 <form action="/posts" method="POST">
-    <label>Title of Post: 
-        <input type="text" name="title">
+    <label class="form-label">Title of Post: 
+      <br><br>
+        <input type="text" name="title" class="postTagInput" required placeholder="Please enter at least 5 characters!">
     </label>
-    <br>
-    <br>
+    <br><br>
     <label>Tags:
-        <input type="text" name="tag">
+      <br><br>
+        <input type="text" name="tag" class="postTagInput" required placeholder="Enter at least 1 tag!">
     </label>
     <br><br><br>
     <h3>Type away your knowledge and POWAH, my friends!</h3>
@@ -41,7 +42,7 @@
     </label>
     <br>
     <br>
-    <button type="submit">Publish Your Post!</button>
+    <button id="publishBtn" type="submit">💡 Publish Your Post!</button>
 </form>
 
 <%- include('../partials/footer') %>

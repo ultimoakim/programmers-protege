@@ -29,12 +29,16 @@
               <th scope="row"><%= post.userName %></th>
               <td><a href="/posts/<%= post._id %>"><%= post.title %></a></td>
               <td><%= post.tag %></td>
-              <td><%= new Date() %></td>
-              <td>
-                <form action="/posts/<%= post._id %>/?_method=DELETE" method="POST">
-                  <button type="submit">Delete Post</button>
-                </form>
-              </td>
+              <td><%= post.createdAt %></td>
+              <% if (user && post.user.equals(user._id)) { %>
+                <td>
+                  <form action="/posts/<%= post._id %>/?_method=DELETE" method="POST">
+                    <button type="submit" id="deletePostBtn">Delete Post</button>
+                  </form>
+               </td>
+               <% } else { %>
+                <td></td>
+              <% }; %>
           </tr>
           <% }); %>
       </tbody>
@@ -60,7 +64,7 @@
                 <th scope="row"><%= post.userName %></th>
                 <td><a href="/posts/<%= post._id %>"><%= post.title %></a></td>
                 <td><%= post.tag %></td>
-                <td><%= new Date() %></td>
+                <td><%= post.createdAt %></td>
             </tr>
             <% }); %>
         </tbody>

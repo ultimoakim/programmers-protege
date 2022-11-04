@@ -1,35 +1,132 @@
 <%- include('../partials/header') %>
 
-<% if (user) { %>
-<br>
-<h3><%= title %></h3>
-<section>
-    <br>
-    <form action="/posts/<%= singDoc._id %>/edit" method="GET">
-        <button id="editPostBtn" type="submit">✏️ Edit Your Protégé Post!</button>
-    </form>
-</section>
-<br><br>
-<h4>Created by: <%= singDoc.userName %></h4>
-<h4>Title: <%= singDoc.title %></h4>
-<br><br>
-<main id="postBody">
-    <%= stringToHTML %>
-</main>
-        <% } else { %>
+    <% if (user) { %> <!-- This section is for USERS ONLY -->
+        <br>
+        <h3>
+            <%= title %>
+        </h3>
+        <section>
             <br>
-            <h3><%= title %></h3>
+            <% if (singDoc.user.equals(user._id)) { %>
+                <form action="/posts/<%= singDoc._id %>/edit" method="GET">
+                    <button id="editPostBtn" type="submit">✏️ Edit Your Protégé Post!</button>
+                </form>
+                <% }; %>
+        </section>
+        <br><br>
+        <h4>Author of Post: <%= singDoc.userName %>
+        </h4>
+        <h4>Title: <%= singDoc.title %>
+        </h4>
+        <h4>Last Updated: <%= singDoc.updatedAt %>
+        </h4>
+        <br><br>
+        <main id="centerPostBody">
+            <section id="postBody">
+                <%- singDoc.content %>
+            </section>
+        </main>
+
+        <!-- Comments are below here -->
+        <main id="commentBody">
+            <% if (singDoc.comment.length === 0) { %>
+                <br><br><br>
+                <h4>No comments yet! Be the first to comment on your fellow protégé's post!</h4>
+                <% } else { %>
+                    <br><br><br>
+                    <h3>Comments</h3>
+                    <br>
+                    <table class="table table-success table-striped">
+                        <tr>
+                            <th>User</th>
+                            <th>Comment</th>
+                        </tr>
+                        <% singDoc.comment.forEach(function(comm) { %>
+                        <tr>
+                            <td>
+                                <img alt="avatar" src="<%= comm.userAvatar %>" id="commentAvatar">
+                                <%= comm.userName %>
+                            </td>
+                                <td><%= comm.content %></td>
+                            </tr>
+                            <% }) %>
+                        </table> 
+           <% } %>
+        </main>
+        <!-- Comment creation starts here -->
+        <br><br>
+        <form action="/posts/<%= singDoc._id %>/comments" method="POST">
+            <label>
+                <h5>Add A Comment!</h5>
+            </label>
+            <br>
+            <input type="text" name="content">
+            <br><br>
+            <button type="submit">Add Comment!</button>
+        </form>
+
+        <!-- Comment creation ends here -->
+
+
+        <!-- Comments end here. DON'T delete that last curly below; that's for the else statement that validates users. -->
+
+        <% } else { %> <!-- This is for NON-Users -->
+            <br>
+            <h3>
+                <%= title %>
+            </h3>
             <section>
                 <br>
             </section>
             <br><br>
-            <h4>Created by: <%= singDoc.userName %></h4>
-            <h4>Title: <%= singDoc.title %></h4>
+            <h4>Author of Post: <%= singDoc.userName %>
+            </h4>
+            <h4>Title: <%= singDoc.title %>
+            </h4>
+            <h4>Last Updated: <%= singDoc.updatedAt %>
+            </h4>
             <br><br>
-            <main id="postBody">
-                <%= stringToHTML %>
+            <main id="centerPostBody">
+                <section id="postBody">
+                    <%- singDoc.content %>
+                </section>
             </main>
-            <% } %> 
-    
 
-<%- include('../partials/footer') %>
+            <!-- Comments are below here -->
+        <main id="commentBody">
+            <% if (singDoc.comment.length === 0) { %>
+                <br><br><br>
+                <h4>No comments yet! Be the first to comment on your fellow protégé's post!</h4>
+                <% } else { %>
+                    <br><br><br>
+                    <h3>Comments</h3>
+                    <br>
+                    <table class="table table-success table-striped">
+                        <tr>
+                            <th>User</th>
+                            <th>Comment</th>
+                        </tr>
+                        <% singDoc.comment.forEach(function(comm) { %>
+                        <tr>
+                            <td>
+                                <img alt="avatar" src="<%= comm.userAvatar %>" id="commentAvatar">
+                                <%= comm.userName %>
+                            </td>
+                            <td><%= comm.content %></td>
+                            </tr>
+                            <% }) %>
+                        </table> 
+           <% } %>
+        </main>
+        <!-- Comment creation starts here -->
+        <br><br>
+        
+        <h4>Please log in to make a comment on this post!</h4>
+
+        <!-- Comment creation ends here -->
+
+
+        <!-- Comments end here. DON'T delete that last curly below; that's for the else statement that validates users. -->
+            <% } %>
+                
+                <%- include('../partials/footer') %>
