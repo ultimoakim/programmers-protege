@@ -30,7 +30,7 @@ const postSchema = new Schema({
     tag: String,
     content: {
         type: String,
-        minLength: [20, `Your post must be at least 50 characters.`],
+        minLength: [20, `Your post must be at least 20 characters.`],
     },
     // We will embed the commentSchema within the postSchema because they share a one-to-many relationship. If they did NOT have a one-to-many relationship, we would be prohibited from using embedding.
     comment: [commentSchema],

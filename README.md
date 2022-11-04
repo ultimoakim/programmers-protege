@@ -15,6 +15,8 @@
 [![GitHub Badge](https://img.shields.io/badge/-@ultimoakim-junglegreen?style=flat&logo=GitHub&logoColor=black)](https://github.com/ultimoakim)
 [![LinkedIn Badge](https://img.shields.io/badge/-@ultimoakim-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/ultimoakim/)
 
+### [Click here to see the Trello Planning.](https://trello.com/b/2YPrn8Du/project-2)
+
 
 </div>
 
