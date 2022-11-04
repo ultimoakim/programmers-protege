@@ -40,6 +40,7 @@
                         <tr>
                             <th>User</th>
                             <th>Comment</th>
+                            <th></th>
                         </tr>
                         <% singDoc.comment.forEach(function(comm) { %>
                         <tr>
@@ -48,6 +49,13 @@
                                 <%= comm.userName %>
                             </td>
                                 <td><%= comm.content %></td>
+                                <td>
+                                    
+                                    <form action="/comments/<%= comm._id %>/edit" method="GET">
+                                        <button type="submit">Edit Comment</button>
+                                    </form>
+                                   
+                                </td>
                             </tr>
                             <% }) %>
                         </table> 

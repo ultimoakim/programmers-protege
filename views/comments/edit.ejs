@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<br><br>
+<h3>Edit Comment</h3>
+<br>
+<form action="/comments/<%= findPostId._id %>?_method=PUT" method="POST">
+    <input name="content" value="<%= findPostId.content %>">
+    <br><br>
+    <button type="submit">Update Comment!</button>
+</form>
+
+
+<%- include('../partials/footer') %>
